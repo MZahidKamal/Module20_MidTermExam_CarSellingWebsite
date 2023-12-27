@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+{% block page_independent_content %}
+
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size: 48px; font-family: "Times New Roman", serif; color: #055D7A;'><em>Profile: {{ first_name }} {{ last_name }}</em></span></strong></p>
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size: 20px; font-family: "Times New Roman", serif;'>Profile details, Purchase history and More ...</span></strong></p>
+	<br><br>
+
+	<table class="table table-hover table-responsive">
+		<thead>
+		<tr>
+			<th scope="col"><h5 style="color: #055D7A">Purchase Date</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Car</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Unit Price</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Quantity</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Total Price</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Payment Type</h5></th>
+			<th scope="col"><h5 style="color: #055D7A">Payment Status</h5></th>
+		</tr>
+		</thead>
+		<tbody class="table-group-divider" style="color: #055D7A">
+
+		{% for each in purchases %}
+
+			<tr>
+				<td><small>{{ each.buy_date.date }}</small></td>
+				<td><p>{{ each.car }}</p></td>
+				<td><small>{{ each.car.price }} €</small></td>
+				<td><small>{{ each.quantity }} Pieces</small></td>
+				<td><small>{{ each.total_price }} €</small></td>
+				<td><small>{{ each.payment_type }}</small></td>
+
+				<td>
+					{% if each.payment_type.name == 'Cash' %}
+						<small>Completed</small>
+					{% else %}
+						<small>Partially Paid</small>
+					{% endif %}
+				</td>
+			</tr>
+
+		{% endfor %}
+
+		</tbody>
+	</table>
+
+	<small>To contact, email to 📨 {{ email }}</small><br>
+	<small>To edit profile, click ⚙️ <a href="{% url 'edit_profile' %}">Edit.</a></small><br>
+	<small>To delete profile, click 🗑️ <a href="{% url 'delete_profile' %}">Delete.</a></small>
+
+{% endblock %}

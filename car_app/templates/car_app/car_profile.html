@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+{% block page_independent_content %}
+
+	<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><strong><span style='font-size: 48px; font-family: "Times New Roman", serif; color: #055D7A;'><em>{{ car_model.manufacturer }} {{ car_model.model }}</em></span></strong></p>
+	<br>
+
+	<table style="width: 100%;">
+		<tbody>
+		<tr>
+			<td style="width: 50.0000%;">
+
+
+				<!--TECHNICAL SPECIFICATION SECTION - START-->
+				<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;background:white;'><strong><u><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>Technical Specifications</span></u></strong></p>
+				<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;background:white;'><span style='font-size:7px;font-family:"Times New Roman",serif;color:#212529;'>&nbsp;</span></p>
+				<table style="border-collapse:collapse;border:none;">
+					<tbody>
+					<tr>
+						<td style="width: 106.0pt;border: 0pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>Capacity:</span></p>
+						</td>
+						<td style="width: 344.7pt;border-top: 0pt solid windowtext;border-right: 0pt solid windowtext;border-bottom: 0pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>{{ car_model.capacity }}</span></p>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 106.0pt;border-right: 0pt solid windowtext;border-bottom: 0pt solid windowtext;border-left: 0pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>Shift:&nbsp;</span></p>
+						</td>
+						<td style="width: 344.7pt;border-top: none;border-left: none;border-bottom: 0pt solid windowtext;border-right: 0pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>{{ car_model.shift }}</span></p>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 106.0pt;border-right: 0pt solid windowtext;border-bottom: 0pt solid windowtext;border-left: 0pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>Fuel:&nbsp;</span></p>
+						</td>
+						<td style="width: 344.7pt;border-top: none;border-left: none;border-bottom: 0pt solid windowtext;border-right: 0pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>{{ car_model.fuel }}</span></p>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 106.0pt;border-right: 0pt solid windowtext;border-bottom: 0pt solid windowtext;border-left: 0pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>Top Speed:&nbsp;</span></p>
+						</td>
+						<td style="width: 344.7pt;border-top: none;border-left: none;border-bottom: 0pt solid windowtext;border-right: 0pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>{{ car_model.top_speed }} Km/H</span></p>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<!--TECHNICAL SPECIFICATION SECTION - END-->
+
+
+				<!--PRODUCT DETAILS SECTION - START-->
+				<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:16px;font-family:"Times New Roman",serif;'>&nbsp;</span></p>
+				<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;background:white;'><strong><u><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>Product Details</span></u></strong><strong><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>&nbsp;</span></strong></p>
+				<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;background:white;'><span style="font-size:7px;color:#212529;">&nbsp;</span></p>
+				<table style="border-collapse:collapse;border:none;">
+					<tbody>
+					<tr>
+						<td style="width: 106.0pt;border: 0pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>Price:&nbsp;</span></p>
+						</td>
+						<td style="width: 344.7pt;border-top: 0pt solid windowtext;border-right: 0pt solid windowtext;border-bottom: 0pt solid windowtext;border-image: initial;border-left: none;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>{{ car_model.price }} &euro;</span></p>
+						</td>
+					</tr>
+					<tr>
+						<td style="width: 106.0pt;border-right: 0pt solid windowtext;border-bottom: 0pt solid windowtext;border-left: 0pt solid windowtext;border-image: initial;border-top: none;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>Stock:&nbsp;</span></p>
+						</td>
+						<td style="width: 344.7pt;border-top: none;border-left: none;border-bottom: 0pt solid windowtext;border-right: 0pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
+							<p style='margin: 0cm;font-size:11.0pt;font-family:"Calibri",sans-serif;line-height:normal;'><span style='font-size:20px;font-family:"Times New Roman",serif;color:#212529;'>{{ car_model.quantity }} Pieces</span></p>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				<p style='margin: 0cm 0cm 8.0pt;font-size:11.0pt;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+				<!--PRODUCT DETAILS SECTION - END-->
+
+
+			</td>
+			<td style="width: 50.0000%;">
+
+				<!--CAR IMAGE SECTION - START-->
+				<img src="{{ car_model.image.url }}" class="card-img-top" style="width: auto" alt="...">
+				<!--CAR IMAGE SECTION - END-->
+
+			</td>
+		</tr>
+		</tbody>
+	</table>
+
+
+	<!--BUY THIS CAR SECTION - START-->
+	{% if user.is_authenticated %}
+		<a class="nav-link" href="{% url 'car_purchase' car_model.id %}">
+			<button type="button" class="btn btn-primary btn-sm" style="background-color: cornflowerblue">Buy This Car</button>
+		</a>
+	{% endif %}
+	<!--BUY THIS CAR SECTION - END-->
+	<br>
+	<br>
+
+
+	<!--COMMENT VIEW SECTION - START-->
+	<div class="card m-auto w-auto mb-3">
+		<h5 class="p-3">Total {{ comments | length }} comments.</h5>
+		<div class="card-body">
+
+			{% for comment in comments %}
+				<div class="border border-primary-subtle rounded m-2 b-2 p-2">
+					👤 <small style="font-weight: bold">{{ comment.name }}</small>
+					✉️ <small style="font-style: italic">{{ comment.email }}</small>
+					🕛 <small>{{ comment.created_at }}</small>
+					<p>{{ comment.content }}</p>
+				</div>
+			{% endfor %}
+
+		</div>
+	</div>
+	<!--COMMENT VIEW SECTION - END-->
+
+
+	<!--COMMENT POSTING FORM SECTION - START-->
+	<div class="card m-auto w-auto mb-3">
+		<div class="card-body">
+			<form method="post" action="" enctype="multipart/form-data" novalidate class="pt-2">
+
+				{#CSRF Token Added here.#}
+				{% csrf_token %}
+
+				<h5>Add Comment</h5>
+				<br>
+
+				<!--{{ form | crispy }}-->
+				{% for field in form %}
+					{{ field.label }}
+					{{ field }}
+					{{ field.errors | striptags }}
+				{% endfor %}
+
+
+				{% if form.non_field_errors %}
+					{% for error in form.non_field_errors %}
+						<small class="bg-danger text-white p-3">{{ error }}</small>
+					{% endfor %}
+				{% endif %}
+
+
+				{% if messages %}
+					{% for each in messages %}
+						<p class="fw-medium" style="color: green">{{ each }}</p>
+					{% endfor %}
+				{% endif %}
+
+
+				<br>
+				<button type="submit" class="btn btn-primary mt-2">Send</button>
+				<br>
+				<br>
+
+			</form>
+		</div>
+	</div>
+	<!--COMMENT POSTING FORM SECTION - END-->
+
+
+{% endblock %}

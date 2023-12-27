@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+{% block page_independent_content %}
+	<h1>Choose Your Dream Car from here...</h1>
+	<br>
+	
+	<div class="d-flex flex-wrap">
+		<!--Left column. Showing all categories.-->
+		<div class="col-2">
+			<p>Select Brand:</p>
+			
+			{% for brand in brands %}
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="{{ brand.name }}" id="flexCheckDefault">
+					<label class="form-check-label" for="flexCheckDefault">
+						<small>
+							<a class="text-decoration-none text-dark" href="{% url 'brand_wise_cars' brand.slug %}">{{ brand.name }}</a>
+						</small>
+					</label>
+				</div>
+			{% endfor %}
+			
+			<br>
+			<h6>Total {{ cars | length }} results found.</h6>
+		
+		
+		</div>
+		
+		<!--Right column. Showing all posts.-->
+		<div class="col-10">
+			
+			{% for car in cars %}
+				
+				<div class="card mb-3" style="max-width: 70%;">
+					<div class="row g-0">
+						<div class="col-md-6 d-flex align-items-center justify-content-center">
+							<img src="{{ car.image.url }}" class="img-fluid rounded-start" style="height: 150px" alt="...">
+						</div>
+						<div class="col-md-6">
+							<div class="card-body">
+								<h5 style='margin: 5px;font-size:11.0pt;font-family:"Roboto Light",sans-serif;line-height:normal;'><strong><span style="font-size: 20px; font-family: 'Roboto Light',serif;">{{ car.brand }} {{ car.model }}</span></strong></h5>
+								<p style='margin: 5px;font-size:11.0pt;font-family:"Roboto Light",sans-serif;line-height:normal;'><span style="font-family: 'Roboto Light',serif;"><strong><span style="font-size: 20px;"><span style="color: rgb(37, 37, 37); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;">{{ car.capacity }} &nbsp;- &nbsp;{{ car.fuel }}</span></span></strong></span></p>
+								<p style='margin: 5px;font-size:11.0pt;font-family:"Roboto Light",sans-serif;line-height:normal;'><span style="font-size: 20px; font-family: 'Roboto Light',serif;"><span>Price: {{ car.price }} &euro;</span></span></p>
+								<a class="nav-link" href="{% url 'car_profile' car.id %}">
+									<button type="button" class="btn btn-primary btn-sm" style="background-color: cornflowerblue">See Details</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			{% endfor %}
+		
+		</div>
+	</div>
+
+
+
+{% endblock %}
